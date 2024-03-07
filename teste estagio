@@ -1,0 +1,143 @@
+1- int main() {
+    int INDICE = 13, SOMA = 0, K = 0;
+    
+    while (K < INDICE) {
+        K = K + 1;
+        SOMA = SOMA + K;
+    }
+    
+    std::cout << SOMA << std::endl;
+    
+    return 0;
+}
+
+2- // Função para verificar se um número pertence à sequência de Fibonacci
+bool pertenceFibonacci(int num) {
+    int a = 0, b = 1;
+    
+    // Verifica se o número é igual a 0 ou 1
+    if (num == 0 || num == 1) {
+        return true;
+    }
+
+    // Calcula a sequência de Fibonacci até ultrapassar o número dado
+    while (b <= num) {
+        int temp = b;
+        b += a;
+        a = temp;
+        
+        // Se encontrar o número na sequência, retorna true
+        if (b == num) {
+            return true;
+        }
+    }
+    
+    // Se o número não for encontrado na sequência, retorna false
+    return false;
+}
+
+int main() {
+    int numero;
+    
+    // Solicita ao usuário para informar um número
+    std::cout << "Informe um numero: ";
+    std::cin >> numero;
+    
+    // Verifica se o número pertence à sequência de Fibonacci
+    if (pertenceFibonacci(numero)) {
+        std::cout << "O numero informado pertence a sequencia de Fibonacci.\n";
+    } else {
+        std::cout << "O numero informado NAO pertence a sequencia de Fibonacci.\n";
+    }
+    
+    return 0;
+}
+
+3- using namespace std;
+
+// Função para calcular o próximo elemento em cada sequência
+int proximoElemento(char sequencia, int ultimoElemento) {
+    switch(sequencia) {
+        case 'a':
+            return ultimoElemento + 2;
+        case 'b':
+            return ultimoElemento * 2;
+        case 'c':
+            return ultimoElemento * ultimoElemento + 1;
+        case 'd':
+            return (ultimoElemento + 2) * (ultimoElemento + 2);
+        case 'e':
+            return ultimoElemento + (ultimoElemento - 1);
+        case 'f':
+            if (ultimoElemento % 5 == 2)
+                return ultimoElemento + 5;
+            else
+                return ultimoElemento + 1;
+        default:
+            return -1;
+    }
+}
+
+int main() {
+    // Sequências fornecidas
+    char sequencias[] = {'a', 'b', 'c', 'd', 'e', 'f'};
+    int ultimosElementos[] = {7, 64, 36, 64, 8, 19};
+
+    // Calcula e imprime os próximos elementos em cada sequência
+    for (int i = 0; i < sizeof(sequencias)/sizeof(sequencias[0]); ++i) {
+        cout << "Próximo elemento em sequência " << sequencias[i] << ": " 
+             << proximoElemento(sequencias[i], ultimosElementos[i]) << endl;
+    }
+
+    return 0;
+}
+
+4- int main() {
+    // Simulação do primeiro passo: ligar o primeiro interruptor
+    cout << "Ligando o primeiro interruptor..." << endl;
+    // Simulação do tempo de espera
+    cout << "Aguarde alguns minutos..." << endl;
+    
+    // Simulação do segundo passo: desligar o primeiro interruptor e ligar o segundo interruptor
+    cout << "Desligando o primeiro interruptor e ligando o segundo interruptor..." << endl;
+    
+    // Simulação de entrar na sala das lâmpadas
+    cout << "Você entra na sala das lâmpadas." << endl;
+    
+    // Simulação do resultado
+    cout << "A lâmpada que está acesa está conectada ao segundo interruptor." << endl;
+    cout << "A lâmpada que está apagada e quente está conectada ao primeiro interruptor." << endl;
+    cout << "A lâmpada que está apagada e fria está conectada ao terceiro interruptor." << endl;
+
+    return 0;
+
+5- using namespace std;
+
+void inverterString(char* str) {
+    // Calcula o tamanho da string
+    int tamanho = 0;
+    while (str[tamanho] != '\0') {
+        tamanho++;
+    }
+    
+    // Inverte a string
+    for (int i = 0; i < tamanho / 2; i++) {
+        char temp = str[i];
+        str[i] = str[tamanho - i - 1];
+        str[tamanho - i - 1] = temp;
+    }
+}
+
+int main() {
+    // Defina a string aqui
+    char str[] = "Exemplo";
+
+    cout << "String original: " << str << endl;
+
+    // Chama a função para inverter a string
+    inverterString(str);
+
+    cout << "String invertida: " << str << endl;
+
+    return 0;
+}
